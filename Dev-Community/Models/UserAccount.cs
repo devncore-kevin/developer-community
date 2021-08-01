@@ -9,6 +9,6 @@ namespace Dev_Community.Models
     {
         public int Seq { get; set; }
         public string UsrName { get; set; }
-        public DateTime Created { get; set; }
+        public DateTime Created { get; set; } 
     }
 }
