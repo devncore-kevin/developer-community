@@ -1,0 +1,136 @@
+﻿@namespace Dev_Community.Shared.Controls
+
+@inject IJSRuntime JSRumtime
+
+<style>
+    .selectpage {
+        font-weight: bold;
+    }
+</style>
+
+<div class="page pager-area">
+    <div class="mq_tablet">
+        <a @onclick="@FirstPage" class="btn btn_page_first" title="처음페이지 이동">
+            <strong>처음페이지 이동</strong>
+        </a>
+        <a @onclick="@BeforPage" class="btn btn_page_pre" title="이전 10페이지 이동">
+            <strong>이전 10페이지 이동</strong>
+        </a>
+        @for (int i = 1; i <= pageLimit; i++)
+        {
+            int param = i;
+            <a @onclick="@(() => PageChanged(param))" pagenum="@i" class="pager-num btn-temp">@i</a>
+        }
+
+        <a @onclick="@NextPage" class="btn btn_page_next" title="다음 10페이지 이동">
+            <strong>다음 10페이지 이동</strong>
+        </a>
+
+        <a @onclick="@LastPage" class="btn btn_page_last" title="마지막페이지 이동">
+            <strong>마지막페이지 이동</strong>
+        </a>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public int TotalListCount { get; set; }
+    [Parameter]
+    public int ListSize { get; set; }
+    [Parameter]
+    public Action<int, int> PagerChange { get; set; }
+
+    private int pageLimit { get; set; }
+    private int start { get; set; }
+    private int current { get; set; }
+    private bool isLast = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            PageChanged(1);
+        }
+    }
+
+    private async void PageChanged(int counter)
+    {
+        current = counter;
+        InitPager(current);
+        this.PagerChange(current, ListSize);
+        await JSRumtime.InvokeVoidAsync("Utils.CurrentPage", current);
+        this.StateHasChanged();
+    }
+
+
+    public async void DataRefresh(int? totalcnt)
+    {
+        if (totalcnt != null)
+            TotalListCount = (int)totalcnt;
+
+        PageChanged(current);
+    }
+
+    private void InitPager(int page)
+    {
+        pageLimit = (TotalListCount / ListSize) + ((TotalListCount % ListSize) == 0 ? 0 : 1);
+
+
+        if (page > pageLimit)
+        {
+            PageChanged(pageLimit);
+        }
+        if (page == pageLimit)
+        {
+            isLast = true;
+        }
+        else
+        {
+            isLast = false;
+        }
+    }
+
+    private void NextPage()
+    {
+        if (isLast == true)
+        {
+            return;
+        }
+
+        var page = current + 10;
+        if (pageLimit - current < 10)
+        {
+            page = current += 1;
+        }
+
+        PageChanged(page);
+    }
+
+    private void BeforPage()
+    {
+        if (current == 1)
+        {
+            return;
+        }
+
+        var page = current - 10;
+        if (pageLimit - current < 10)
+        {
+            page = current - 1;
+        }
+        PageChanged(page);
+    }
+
+    private void FirstPage()
+    {
+        PageChanged(1);
+    }
+
+    private void LastPage()
+    {
+        PageChanged(pageLimit);
+    }
+}
