@@ -132,5 +132,24 @@ namespace Dev_Community
         //    services.AddTransient<IRoomQuestionService, RoomQuestionService>();
         //    services.AddTransient<IQtalkNoticeService, QtalkNoticeService>();
         //}
+        
+        
+            //public interface IDBService<T>
+    //{
+    //    Task<T> Get(string ID);
+    //    Task<T> Add(T item);
+    //    Task<T> Remove(T item);
+    //    Task<T> Update(T item);        
+    //    Task<List<T>> GetAll();
+    //}
+
+    //public class DBServiceClass
+    //{
+    //    protected readonly EtoosContext context;
+    //    protected DBServiceClass(EtoosContext _context)
+    //    {
+    //        context = _context;
+    //   }      
+    //}
     }
 }
