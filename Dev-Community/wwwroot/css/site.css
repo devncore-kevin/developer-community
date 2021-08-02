@@ -181,3 +181,153 @@ app {
         display: block;
     }
 }
+
+/* page */
+.page {
+    width: 100%;
+    text-align: center;
+}
+
+.list_QA + .page {
+    padding: 27px 0 27px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.page a.btn_page_first strong,
+.page a.btn_page_pre strong,
+.page a.btn_page_next strong,
+.page a.btn_page_last strong,
+.page a.btn_page_preStep strong,
+.page a.btn_page_nextStep strong {
+    position: absolute;
+    left: -10000px;
+}
+
+@media all and (min-width:1200px) {
+    .page {
+        height: px;
+        padding: 57px 0 0 0;
+    }
+
+        .page .mq_mobile {
+            position: absolute;
+            left: -10000px;
+        }
+
+        .page a,
+        .page strong {
+            display: inline-block;
+            width: 26px;
+            padding: 3px 1px 0 1px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+            color: #cacaca;
+            line-height: 22px;
+            cursor: pointer;
+        }
+
+            .page a:hover,
+            .page strong:hover {
+                font-weight: 400;
+                color: #000;
+                font-weight: bold;
+                letter-spacing: -1px;
+            }
+
+        .page strong {
+            font-weight: 400;
+            color: #000;
+            letter-spacing: -1px;
+        }
+
+        .page a.btn {
+            width: 10px;
+            height: 26px;
+            margin: 0px;
+            vertical-align: middle;
+        }
+
+        .page a.btn_page_first {
+            background: url('../img/desktop/common/icon_btn_page_first.png') no-repeat 50% 50%;
+        }
+
+        .page a.btn_page_pre {
+            margin: 0 9px 0 1px;
+            background: url('../img/desktop/common/icon_btn_page_pre.png') no-repeat 50% 50%;
+        }
+
+        .page a.btn_page_next {
+            margin: 0 1px 0 15px;
+            background: url('../img/desktop/common/icon_btn_page_next.png') no-repeat 50% 50%;
+        }
+
+        .page a.btn_page_last {
+            background: url('../img/desktop/common/icon_btn_page_last.png') no-repeat 50% 50%;
+        }
+
+        .page .area_btn_more {
+            padding: 50px 0px 0 0px;
+            text-align: center;
+        }
+
+        .page .btn_more {
+            display: inline-block;
+            border: 1px solid #000;
+            width: 200px;
+            height: 60px;
+        }
+
+            .page .btn_more strong {
+                display: inline-block;
+                width: auto;
+                padding: 0 15px 0 0;
+                background: url('../img/mobile/common/icon_btn_more_page.png') no-repeat 100% 25px;
+                background-size: 8px 8px;
+                font-weight: normal;
+                font-size: 16px;
+                color: #000;
+                line-height: 60px;
+                letter-spacing: -1px;
+            }
+}
+
+@media all and (max-width:1199px) {
+    .page {
+        padding: 35px 0 0 0;
+    }
+
+        .page .mq_tablet {
+            position: absolute;
+            left: -10000px;
+        }
+
+        .page .btn_more strong {
+            padding: 0 17px 0 0px;
+            background: url('../img/mobile/common/icon_btn_more_page.png') no-repeat 100% 19px;
+            background-size: 8px 8px;
+        }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .page a.btn_page_first {
+        background: url('../img/desktop/common/icon_btn_page_first.png') no-repeat 50% 11px;
+    }
+
+    .page a.btn_page_pre {
+        background: url('../img/desktop/common/icon_btn_page_pre.png') no-repeat 50% 11px;
+    }
+
+    .page a.btn_page_next {
+        background: url('../img/desktop/common/icon_btn_page_next.png') no-repeat 50% 11px;
+    }
+
+    .page a.btn_page_last {
+        background: url('../img/desktop/common/icon_btn_page_last.png') no-repeat 50% 11px;
+    }
+
+    .page .btn_more strong {
+        line-height: 47px;
+    }
+}
+/* page E */
