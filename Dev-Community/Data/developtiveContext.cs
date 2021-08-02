@@ -1,10 +1,11 @@
 ﻿using System;
+using Dev_Community.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Dev_Community.Models
+namespace Dev_Community.Data
 {
     public partial class developtiveContext : DbContext
     {
