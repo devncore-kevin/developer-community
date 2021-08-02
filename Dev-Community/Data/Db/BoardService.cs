@@ -24,9 +24,9 @@ namespace Dev_Community.Data
             throw new NotImplementedException();
         }
 
-        public Task<List<Board>> GetAll()
+        public async Task<List<Board>> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Boards.ToList();
         }
 
         public Task<Board> Remove(Board item)

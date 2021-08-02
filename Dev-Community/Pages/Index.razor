@@ -1,4 +1,6 @@
-﻿@page "/"
+﻿@inject IBoardService BoardDBService
+
+@page "/"
 
 <h1>Hello, world!</h1>
 
@@ -6,3 +8,11 @@ Welcome to your new app.
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {      
+    List<Board> boards = new List<Board>();
+    protected override async Task OnInitializedAsync()
+    {
+        boards = await BoardDBService.GetAll();
+    }
+}
