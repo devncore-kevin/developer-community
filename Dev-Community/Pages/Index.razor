@@ -2,12 +2,16 @@
 
 @page "/"
 
-<h1>Hello, world!</h1>
+@foreach (var item in boards)
+{
+    <div >
+        <div style="display: flex">
+            <div style="margin-right: 20px;">@item.Title</div>
+            <div>@item.Content</div>
+        </div>
+    </div>
+}
 
-Welcome to your new app.
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
 
 @code {      
     List<Board> boards = new List<Board>();
