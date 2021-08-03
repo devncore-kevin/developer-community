@@ -8,6 +8,10 @@ namespace Dev_Community.Pages.Manage.Board
 {
     public partial class BoardView
     {
-       
+        List<Models.Board> boards = new List<Models.Board>();
+        protected override async Task OnInitializedAsync()
+        {
+            boards = await BoardDBService.GetAll();
+        }
     }
 }

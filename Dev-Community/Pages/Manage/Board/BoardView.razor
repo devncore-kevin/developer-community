@@ -5,6 +5,47 @@
 
 @inherits BoardBaseClass
 
-<div>BoardView</div>
+<style type="text/css">
+    table {
+        width: 100%;
+        border: 1px solid #eeeeee;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #eeeeee;
+        padding: 8px;
+    }
+
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>내용</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in boards)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td style="">@item.Content</td>
+                    <td style="min-width: 100px;">@item.ViewCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 
+@code {
+ 
+}

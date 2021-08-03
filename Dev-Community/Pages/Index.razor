@@ -1,21 +1,2 @@
-﻿
-@page "/"
+﻿@page "/"
 
-@foreach (var item in boards)
-{
-    <div >
-        <div style="display: flex">
-            <div style="margin-right: 20px;">@item.Title</div>
-            <div>@item.Content</div>
-        </div>
-    </div>
-}
-
-
-@code {      
-    List<Board> boards = new List<Board>();
-    protected override async Task OnInitializedAsync()
-    {
-        //boards = await BoardDBService.GetAll();
-    }
-}
