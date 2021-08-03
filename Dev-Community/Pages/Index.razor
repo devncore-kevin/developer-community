@@ -1,5 +1,4 @@
-﻿@inject IBoardService BoardDBService
-
+﻿
 @page "/"
 
 @foreach (var item in boards)
@@ -17,6 +16,6 @@
     List<Board> boards = new List<Board>();
     protected override async Task OnInitializedAsync()
     {
-        boards = await BoardDBService.GetAll();
+        //boards = await BoardDBService.GetAll();
     }
 }

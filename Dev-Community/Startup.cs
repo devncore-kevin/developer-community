@@ -35,6 +35,11 @@ namespace Dev_Community
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
+            AddTransient(services);
+        }
+
+        public void AddTransient(IServiceCollection services)
+        {
             services.AddTransient<IBoardService, BoardService>();
         }
 
@@ -63,8 +68,8 @@ namespace Dev_Community
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
-        
-                //public void ConfigureServices(IServiceCollection services)
+
+        //public void ConfigureServices(IServiceCollection services)
         //{
         //    var serverVersion = new MariaDbServerVersion(new Version(10, 0, 16));
 
@@ -118,45 +123,5 @@ namespace Dev_Community
         //    //로그
         //    SerilogConfig(services);            
         //}
-
-        //public void AddTransient(IServiceCollection services)
-        //{
-        //    services.AddTransient<ISvcCdService, SvcCdService>();
-        //    services.AddTransient<ILectureService, LectureService>();
-        //    services.AddTransient<IExamService, ExamService>();
-        //    services.AddTransient<IStadiumService, StadiumService>();
-        //    services.AddTransient<IExamResultService, ExamResultService>();
-        //    services.AddTransient<IRoomService, RoomService>();
-        //    services.AddTransient<IPlaceService, PlaceService>();
-        //    services.AddTransient<IRoomTemplateService, RoomTemplateService>();
-        //    services.AddTransient<IQtalkService, QtalkService>();
-        //    services.AddTransient<IPlaceRoomService, PlaceRoomService>();
-        //    services.AddTransient<IUserFileService, UserFileDBService>();
-        //    services.AddTransient<ICategoryService, CategoryService>();
-        //    services.AddTransient<IRoomReservationService, RoomReservationService>();
-        //    services.AddTransient<IUserInfoService, UserInfoService>();
-        //    services.AddTransient<IRoomDetailService, RoomDetailService>();
-        //    services.AddTransient<IRoomQuestionService, RoomQuestionService>();
-        //    services.AddTransient<IQtalkNoticeService, QtalkNoticeService>();
-        //}
-        
-        
-            //public interface IDBService<T>
-    //{
-    //    Task<T> Get(string ID);
-    //    Task<T> Add(T item);
-    //    Task<T> Remove(T item);
-    //    Task<T> Update(T item);        
-    //    Task<List<T>> GetAll();
-    //}
-
-    //public class DBServiceClass
-    //{
-    //    protected readonly EtoosContext context;
-    //    protected DBServiceClass(EtoosContext _context)
-    //    {
-    //        context = _context;
-    //   }      
-    //}
     }
 }
