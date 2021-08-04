@@ -8,7 +8,7 @@ namespace Dev_Community.Data
 
     public interface IDBService<T>
     {
-        Task<T> Get(string ID);
+        Task<T> Get(int ID);
         Task<T> Add(T item);
         Task<T> Remove(T item);
         Task<T> Update(T item);

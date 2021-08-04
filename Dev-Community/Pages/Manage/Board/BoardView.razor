@@ -24,6 +24,7 @@
 </style>
 
 <div>
+    <button class="btn btn-success" @onclick="@(() => Nav.NavigateTo("/Manage/Board/Edit"))">게시글 추가</button>
     <table>
         <thead>
             <tr>
@@ -37,7 +38,7 @@
             {
                 <tr>
                     <td>@item.Title</td>
-                    <td style="">@item.Content</td>
+                    <td @onclick="@(() => Nav.NavigateTo($"/Manage/Board/Edit/{item.Seq}"))">@item.Content</td>
                     <td style="min-width: 100px;">@item.ViewCount</td>
                 </tr>
             }

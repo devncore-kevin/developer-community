@@ -19,9 +19,9 @@ namespace Dev_Community.Data
             throw new NotImplementedException();
         }
 
-        public Task<Board> Get(string ID)
+        public async Task<Board> Get(int ID)
         {
-            throw new NotImplementedException();
+            return context.Boards.Find(ID);
         }
 
         public async Task<List<Board>> GetAll()
