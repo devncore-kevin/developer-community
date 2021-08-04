@@ -1,5 +1,6 @@
 ﻿using Dev_Community.Data;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Dev_Community.Pages.Manage.Board
     {
         [Inject] protected IBoardService BoardDBService { get; set; }
         [Inject] protected NavigationManager Nav { get; set; }
+        [Inject] protected IJSRuntime JSRuntime { get; set; }
     }
 }

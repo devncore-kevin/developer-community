@@ -3,7 +3,45 @@
 
 @inherits BoardBaseClass
 
-<h3>BoardEdit</h3>
+<style type="text/css">
+    .flex-parent {
+        display: flex;
+    }
+
+    .m-t-50 {
+        margin-top: 50px;
+    }
+
+    .m-t-10 {
+        margin-top: 10px;
+    }
+
+    .w-150 {
+        width: 150px;
+    }
+
+    .w-p-100 {
+        width: 100%
+    }
+</style>
+
+<div>
+    <h3>게시글 등록/수정</h3>
+    <div class="m-t-50 flex-parent">
+        <div class="w-150">제목</div>
+        <input class="w-p-100" placeholder="제목을 입력해주세요." @bind-value="board.Title" />
+    </div>
+    <div class="m-t-10 flex-parent">
+        <div class="w-150">내용</div>
+        <textarea class="w-p-100" style="min-height: 100px;" placeholder="내용을 입력해주세요." @bind="board.Content"  />
+    </div>
+
+    <div class="d-inline-block m-4 float-right">
+        <button class="btn btn-success">수정</button>
+        <button class="btn btn-success" @onclick="Btn_Cancel_Click">취소</button>
+    </div>
+</div>
+
 
 @code {
     
