@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -7,6 +9,8 @@ namespace Dev_Community.Models
 {
     public partial class Board
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Seq { get; set; }
         public int FkUserSeq { get; set; }
         public string Title { get; set; }

@@ -11,6 +11,8 @@ namespace Dev_Community.Pages.Manage.Board
         [Parameter] public int Seq { get; set; } 
 
         Models.Board board = new Models.Board();
+
+        bool isEditing = false;
         protected override async Task OnInitializedAsync()
         {
             if (Seq != 0)
@@ -19,7 +21,7 @@ namespace Dev_Community.Pages.Manage.Board
             }
             else
             {
-                
+                isEditing = true;
             }
             
         }
@@ -33,7 +35,7 @@ namespace Dev_Community.Pages.Manage.Board
 
         private void Btn_Save_Click()
         {
-            if (Seq == 0)
+            if (isEditing)
             {
                 BoardDBService.Add(board);
             }
@@ -41,8 +43,9 @@ namespace Dev_Community.Pages.Manage.Board
             {
                 BoardDBService.Update(board);
             }
-
+            
             Nav.NavigateTo("Manage/Board/View");
+     
         }
     }
 }

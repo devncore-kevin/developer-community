@@ -15,9 +15,17 @@ namespace Dev_Community.Data
 
         public async Task<Board> Add(Board item)
         {
-            context.Add(item);
-            context.SaveChanges();
-            return item;
+            try
+            {
+                context.Add(item);
+                context.SaveChanges();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+          
         }
 
         public async Task<Board> Get(int ID)
