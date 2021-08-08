@@ -39,17 +39,17 @@
     }
 ```
 
-Add 후 SaveChanged() 메서드 실행시 오류가 나는데
-Entity Framework 스캐폴딩으로 만들어진 모델 Board 클래스를 사용해 Insert를 하려할 때
-int Seq(Key) 값이 0이 할당 되어 임의로 마지막 행의 Seq값에 1을 더한값을 넣어준 후 Insert를 했음
-= 당연히 실패 자동증가 값에 값을 할당 하면 안됨
+Add 후 SaveChanged() 메서드 실행시 오류가 나는데    
+Entity Framework 스캐폴딩으로 만들어진 모델 Board 클래스를 사용해 Insert를 하려할 때    
+int Seq(Key) 값이 0이 할당 되어 임의로 마지막 행의 Seq값에 1을 더한값을 넣어준 후 Insert를 했음    
+= 당연히 실패 자동증가 값에 값을 할당 하면 안됨    
 
-검색 후
+검색 후    
 ```C#
 [Key]
 [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 public int Seq { get; set; }
 ```
-두줄을 추가 한 후에도 실패 했다. 방법 찾는중
+두줄을 추가 한 후에도 실패 했다. 방법 찾는중    
 
 
