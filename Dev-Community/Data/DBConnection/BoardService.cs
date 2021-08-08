@@ -8,15 +8,16 @@ namespace Dev_Community.Data
 {
     public interface IBoardService : IDBService<Board>
     {
-
     }
     public class BoardService : DBServiceClass, IBoardService
     {
         public BoardService(developtiveContext _context) : base(_context) { }
 
-        public Task<Board> Add(Board item)
+        public async Task<Board> Add(Board item)
         {
-            throw new NotImplementedException();
+            context.Add(item);
+            context.SaveChanges();
+            return item;
         }
 
         public async Task<Board> Get(int ID)
@@ -34,9 +35,11 @@ namespace Dev_Community.Data
             throw new NotImplementedException();
         }
 
-        public Task<Board> Update(Board item)
+        public async Task<Board> Update(Board item)
         {
-            throw new NotImplementedException();
+            context.Update(item);
+            context.SaveChanges();
+            return item;
         }
     }
 }
