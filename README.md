@@ -50,6 +50,13 @@ int Seq(Key) 값이 0이 할당 되어 임의로 마지막 행의 Seq값에 1을
 [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 public int Seq { get; set; }
 ```
-두줄을 추가 한 후에도 실패 했다. 방법 찾는중    
+두줄을 추가 한 후에도 실패 했다.   
+
+Context에 seq자동증가 
+```C#
+ modelBuilder.Entity<Board>()
+               .Property(p => p.Seq)
+               .ValueGeneratedOnAdd();
+```
 
 
