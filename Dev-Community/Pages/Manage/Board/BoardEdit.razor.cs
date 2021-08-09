@@ -8,9 +8,9 @@ namespace Dev_Community.Pages.Manage.Board
 {
     public partial class BoardEdit
     {
-        [Parameter] public int Seq { get; set; } 
+        [Parameter] public int Seq { get; set; }
 
-        Models.Board board = new Models.Board();
+        Models.Board board;
 
         bool isEditing = false;
         protected override async Task OnInitializedAsync()
@@ -21,6 +21,9 @@ namespace Dev_Community.Pages.Manage.Board
             }
             else
             {
+                board = new Models.Board();
+                board.Created = DateTime.Now;
+                board.Updated = DateTime.Now;
                 isEditing = true;
             }
             

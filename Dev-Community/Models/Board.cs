@@ -9,8 +9,6 @@ namespace Dev_Community.Models
 {
     public partial class Board
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Seq { get; set; }
         public int FkUserSeq { get; set; }
         public string Title { get; set; }

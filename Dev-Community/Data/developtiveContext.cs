@@ -34,9 +34,7 @@ namespace Dev_Community.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Board>()
-               .Property(p => p.Seq)
-               .ValueGeneratedOnAdd();
+           
 
             modelBuilder.HasAnnotation("Relational:Collation", "Korean_Wansung_CI_AS");
 
