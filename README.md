@@ -5,10 +5,10 @@
 - 화면구성
 - 컴포넌트 프로젝트 생성
 - 현재 생성된 프로젝트 확인
-- 소스트리 다운로드 후 Git 연동
-- Entity 스케폴딩 사용시 DB 관계설정
-- 페이징 처리
-- CRUD
+- 소스트리 다운로드 후 Git 연동.
+- Entity 스케폴딩 사용시 DB 관계설정.
+- 페이징 처리.
+- CRUD.
 
 ### CRUD 진행중 오류 사항
 **MSSQL Primary Key 자동증가 IDENTITY Insert시 오류**  
